@@ -1,28 +1,34 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen , fireEvent } from '@testing-library/react';
+
 import App from './App';
 
-test('renders learn react link', () => {
+test('button has a correct initial color: red', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  
+  //find an element with role of a button and text of 'Change to blue'
+  let button = screen.getByRole('button', { name: 'Change to blue' });
+  
+  //expect the background color to be red
+  expect(button).toHaveStyle({ backgroundColor: 'red' });
 });
 
 
-// expect is global method from jest - 
-//expect  start the assertion
-//expect(argument) it is a subject of assertion
 
-// toBeInTheDocument is global method from @testing-library/jest-dom
-//it is a custom matcher from @testing-library/jest-dom
-// matcher is a function that takes the subject of assertion and returns a boolean
-//it can take an argument
+test('button turns blue when clicked and have new text: change to red', () => {
+  render(<App />);
+  
+  //find an element with role of a button and text of 'Change to blue'
+  let button = screen.getByRole('button', { name: 'Change to blue' });
+  
+  //click the button
+ 
+  fireEvent.click(button); 
+  
+  //expect the background color to be blue
+  expect(button).toHaveStyle({ backgroundColor: 'blue' });
+  
+  //expect the button text to be 'Change to red'
+  //expect(button.textContent).toBe('Change to red');
+  expect(button).toHaveTextContent('Change to red');
+});
 
-// toHaveLength(1)
-// toBe('hello')
-
-//DOM matchers:
-// toBeInTheDocument
-// toBeVisible
-// toBeDisabled
-// toBeEmpty
-// toBeChecked

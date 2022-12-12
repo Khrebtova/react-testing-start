@@ -1,3 +1,9 @@
+# Helpful LINKS:
+https://www.w3.org/TR/wai-aria/#role_definitions
+https://testing-library.com/docs/queries/about/#priority
+
+# React testing library and Jest
+
 expect is global method from jest - 
 expect  start the assertion
 expect(argument) it is a subject of assertion
@@ -27,4 +33,21 @@ React testing Library needs test runner to find tests, run them. make assertions
 Jest is recommended by Testing Library. and it comes with create-react-app.
 `npm test` runs an npm script that runs Jest in watch mode( watches for changes since last commit)
 
+# How jest works
 
+`test(test('renders learn react link', () => {})`
+Test - global method with 2 arguments:
+1. string description
+2. test function , anonymous 
+
+Test fails if any error is thrown when running the function. assertions trow errors when expectation fails
+
+No errors- test pass
+- empty test -passes
+
+# TTD test driven development
+1. write shell function
+2. write test
+3. write code 
+-part of the coding process from the beginning
+-more efficient - re-run test for free after changes , no need to open app 
