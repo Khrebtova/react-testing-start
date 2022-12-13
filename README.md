@@ -51,3 +51,45 @@ No errors- test pass
 3. write code 
 -part of the coding process from the beginning
 -more efficient - re-run test for free after changes , no need to open app 
+
+# ESLint 
+`npm install eslint-plugin-testing-library eslint-plugin-jest-dom `
+
+delete ESLint config from package.json and 
+
+add separate file : `.eslintrc.json ` with :
+
+`{
+    "plugins": [
+        "testing-library",
+        "jest-dom"
+    ],
+    "extends": [
+        "react-app",
+        "react-app/jest",
+        "plugin:testing-library/react",
+        "plugin:jest-dom/recommended"
+    ]
+}`
+
+create folder `.vscode` inside create file `settings.json `:
+
+`{
+    "editor.codeActionsOnSave": { "source.fixAll.eslint": true }
+}`
+
+add to the `.gitignore`: 
+
+`
+.vscode
+.eslintcache
+`
+
+# add to global settings: 
+
+Settings file locations
+Depending on your platform, the user settings file is located here:
+
+Windows %APPDATA%\Code\User\settings.json
+macOS $HOME/Library/Application\ Support/Code/User/settings.json
+Linux $HOME/.config/Code/User/settings.json
